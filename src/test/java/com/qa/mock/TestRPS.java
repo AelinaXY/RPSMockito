@@ -1,7 +1,7 @@
 
 package com.qa.mock;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Random;
 
@@ -28,7 +28,7 @@ public class TestRPS {
 	void testRockvsRock() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(0);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.ROCK).equals("DRAW"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.ROCK), "DRAW");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -37,7 +37,7 @@ public class TestRPS {
 	void testRockvsPaper() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(1);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.ROCK).equals("LOSS"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.ROCK), "LOSS");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -46,7 +46,7 @@ public class TestRPS {
 	void testRockvsScissors() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(2);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.ROCK).equals("WIN"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.ROCK), "WIN");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -55,7 +55,7 @@ public class TestRPS {
 	void testPapervsRock() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(0);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.PAPER).equals("WIN"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.PAPER), "WIN");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -64,7 +64,7 @@ public class TestRPS {
 	void testPapervsPaper() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(1);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.PAPER).equals("DRAW"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.PAPER), "DRAW");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -73,7 +73,7 @@ public class TestRPS {
 	void testPapervsScissors() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(2);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.PAPER).equals("LOSS"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.PAPER), "LOSS");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -82,7 +82,7 @@ public class TestRPS {
 	void testScissorsvsRock() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(0);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.SCISSORS).equals("LOSS"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.SCISSORS), "LOSS");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -91,7 +91,7 @@ public class TestRPS {
 	void testScissorsvsPaper() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(1);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.SCISSORS).equals("WIN"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.SCISSORS), "WIN");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
@@ -100,7 +100,7 @@ public class TestRPS {
 	void testScissorsvsScissors() {
 		Mockito.when(this.rand.nextInt(3)).thenReturn(2);
 		for (int i = 0; i < 10; i++)
-			assertTrue(this.rpsSim.rpsFight(validRPSMoves.SCISSORS).equals("DRAW"));
+			assertEquals(this.rpsSim.rpsFight(validRPSMoves.SCISSORS), "DRAW");
 
 		Mockito.verify(this.rand, Mockito.times(10)).nextInt(3);
 	}
